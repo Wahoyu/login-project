@@ -1,0 +1,9 @@
+
+r
+java:S3305 "\Inject this field value directly into "authenticationManager", the only method that uses it.(Ï“µ©
+T
+java:S5344=">Don't use the default "PasswordEncoder" relying on plain-text.(ï ¾™
+\
+java:S3252M"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ªŒ‚
+a
+java:S3252S"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(Ï‚‚•úÿÿÿÿ
