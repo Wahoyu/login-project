@@ -19,6 +19,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.io.IOException;
 
@@ -49,15 +52,36 @@ public class SecurityConfiguration {
                 .and()
                 //关闭csrf
                 .csrf().disable()
+                //cors配置
+                .cors()
+                .configurationSource(this.corsConfigurationSource())
+                .and()
                 //异常信息返回
                 .exceptionHandling().authenticationEntryPoint(this::onAuthenticationFailure)
                 .and()
                 .build();
     }
 
+
+    //配置CORS
+    private CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration cors = new CorsConfiguration();
+        //配置可访问接口
+        cors.addAllowedOriginPattern("*");
+        cors.setAllowCredentials(true);
+        cors.addAllowedHeader("*");
+        cors.addAllowedMethod("*");
+        cors.addExposedHeader("*");
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", cors);
+        return source;
+    }
+
+
     //自定义用户登录验证Service
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception{
+    public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
         return security
                 .getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(authorizeService)
@@ -67,7 +91,7 @@ public class SecurityConfiguration {
 
     //密码生成策略
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -80,6 +104,6 @@ public class SecurityConfiguration {
     //登录失败返回信息
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
         response.setCharacterEncoding("utf-8");
-        response.getWriter().write(JSONObject.toJSONString(RestBean.failure(401,exception.getMessage())));
+        response.getWriter().write(JSONObject.toJSONString(RestBean.failure(401, exception.getMessage())));
     }
 }

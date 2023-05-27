@@ -11,8 +11,6 @@ s
 Clogin-project-backend/src/main/java/com/example/entity/Account.java,e/d/ede7da986737d2d41dd625ee5baa063be24681ec
 z
 Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
-Å
-Qlogin-project-backend/src/main/java/com/example/config/SecurityConfiguration.java,b/d/bdaa09cf14459a825cfde97073fa5a90bdd74d58
 X
 (study-project-frontend/package-lock.json,5/d/5da4fec67d2db55bf1d54bba461de966b1f121cd
 P
