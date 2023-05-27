@@ -42,13 +42,14 @@ public class SecurityConfiguration {
                 .and()
                 //表单登录接口
                 .formLogin().loginProcessingUrl("/api/auth/login")
-                //设置登陆成功后返回信息
+                //登陆成功后返回信息
                 .successHandler(this::onAuthenticationSuccess)
                 //登录失败返回信息
                 .failureHandler(this::onAuthenticationFailure)
                 .and()
                 //登出接口
                 .logout().logoutUrl("/api/auth/logout")
+                .logoutSuccessHandler(this::onAuthenticationSuccess)
                 .and()
                 //关闭csrf
                 .csrf().disable()
@@ -95,10 +96,13 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-    //自定义登录成功返回信息
+    //登录和登出成功后返回信息
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setCharacterEncoding("utf-8");
-        response.getWriter().write(JSONObject.toJSONString(RestBean.success("登陆成功")));
+        if(request.getRequestURI().endsWith("/login"))
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("登陆成功")));
+        else if(request.getRequestURI().endsWith("/logout"))
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("退出成功")));
     }
 
     //登录失败返回信息
