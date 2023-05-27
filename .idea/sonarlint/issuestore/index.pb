@@ -1,16 +1,10 @@
 
 P
  login-project-backend/.gitignore,e/9/e94cf804a1b4184cee2a1bc49d85067a21c9b18b
-t
-Dlogin-project-backend/src/main/java/com/example/entity/RestBean.java,d/2/d210a3e1ff16b6f7a3621971b551b6e1cd03e6f0
 M
 login-project-backend/pom.xml,5/1/518a3118922bb74da5f18fb4c08cd9f3a2b98252
 ˆ
 Xlogin-project-backend/src/test/java/com/example/LoginProjectBackendApplicationTests.java,a/9/a97ed49425c51bcf6f57335f9d207aae8b1b6b16
-s
-Clogin-project-backend/src/main/java/com/example/entity/Account.java,e/d/ede7da986737d2d41dd625ee5baa063be24681ec
-z
-Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
 X
 (study-project-frontend/package-lock.json,5/d/5da4fec67d2db55bf1d54bba461de966b1f121cd
 P
