@@ -13,10 +13,12 @@
     </div>
 
     <!--右侧登录界面-->
-    <div style="width: 350px;background-color: white;">
-      <transition name="el-fade-in-linear">
-        <router-view/>
-      </transition>
+    <div style="width: 350px;background-color: white;z-index: 1">
+      <router-view v-slot="{ Component }">
+        <transition name="el-fade-in-linear">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
     </div>
   </div>
 </template>
@@ -25,7 +27,7 @@
 </script>
 
 <style scoped>
-.welcome-title{
+.welcome-title {
   position: absolute;
   bottom: 30px;
   left: 30px;

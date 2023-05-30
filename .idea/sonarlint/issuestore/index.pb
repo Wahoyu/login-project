@@ -1,8 +1,6 @@
 
 P
  login-project-backend/.gitignore,e/9/e94cf804a1b4184cee2a1bc49d85067a21c9b18b
-M
-login-project-backend/pom.xml,5/1/518a3118922bb74da5f18fb4c08cd9f3a2b98252
 ˆ
 Xlogin-project-backend/src/test/java/com/example/LoginProjectBackendApplicationTests.java,a/9/a97ed49425c51bcf6f57335f9d207aae8b1b6b16
 X
@@ -35,3 +33,11 @@ z
 Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
 }
 Mlogin-project-backend/src/main/java/com/example/Service/AuthorizeService.java,2/4/24d865b4a32c1c6098f5df761a42175d7591097c
+k
+;study-project-frontend/src/components/welcome/LoginPage.vue,9/2/927a1190934546e940acb5262ee1786ed9ba196b
+`
+0study-project-frontend/src/views/WelcomePage.vue,3/e/3eef58c125558e7ca04528a98419e715e4dc43ff
+^
+.study-project-frontend/src/views/IndexPage.vue,0/3/030b9f484af13168e30bff37bde14607971a8c76
+Z
+*study-project-frontend/src/router/index.js,9/c/9cdf780a3279841e2dad88f990d7e362f1749780
