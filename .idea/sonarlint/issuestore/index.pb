@@ -41,3 +41,7 @@ k
 .study-project-frontend/src/views/IndexPage.vue,0/3/030b9f484af13168e30bff37bde14607971a8c76
 Z
 *study-project-frontend/src/router/index.js,9/c/9cdf780a3279841e2dad88f990d7e362f1749780
+M
+login-project-backend/pom.xml,5/1/518a3118922bb74da5f18fb4c08cd9f3a2b98252
+Å
+Qlogin-project-backend/src/main/java/com/example/config/SecurityConfiguration.java,b/d/bdaa09cf14459a825cfde97073fa5a90bdd74d58
