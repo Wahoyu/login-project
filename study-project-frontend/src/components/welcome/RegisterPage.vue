@@ -59,7 +59,7 @@
               </el-input>
             </el-col>
             <el-col :span="5">
-              <el-button type="success" :disabled="!isEmailValid">获取验证码</el-button>
+              <el-button type="success" @click="validateEmail" :disabled="!isEmailValid">获取验证码</el-button>
             </el-col>
           </el-row>
         </el-form-item>
@@ -86,6 +86,7 @@ import {
 import router from "@/router";
 import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
+import {post} from "@/net";
 
 const form = reactive({
   username: '',
@@ -156,6 +157,15 @@ const register = () => {
     } else {
       ElMessage.warning('请完整填写注册表单内容!')
     }
+  })
+}
+
+//请求后端的发送验证码请求
+const validateEmail = () => {
+  post('/api/auth/valid-email', {
+    email: form.email
+  }, (message) => {
+    ElMessage.success(message)
   })
 }
 

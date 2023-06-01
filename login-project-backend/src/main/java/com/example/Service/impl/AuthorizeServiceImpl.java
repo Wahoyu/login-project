@@ -40,6 +40,6 @@ public class AuthorizeServiceImpl implements AuthorizeService {
          * 4.如果发送失败的话,把Redis里面的刚刚插入的删除
          * 5.用户在注册时,再从Redis里面取出对应的键值对,然后看验证码是否一致
          */
-        return false;
+        return true;
     }
 }
