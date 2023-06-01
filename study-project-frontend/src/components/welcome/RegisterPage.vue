@@ -88,6 +88,7 @@ import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
 import {post} from "@/net";
 
+//表单封装
 const form = reactive({
   username: '',
   password: '',
