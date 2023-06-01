@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.Service.AuthorizeService;
 import com.example.entity.RestBean;
 import jakarta.annotation.Resource;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +17,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
@@ -45,8 +42,11 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            PersistentTokenRepository repository) throws Exception {
         return http
+                .authorizeHttpRequests()
+                //对登录相关接口进行放行
+                .requestMatchers("/api/auth/**").permitAll()
                 //请求拦截
-                .authorizeHttpRequests().anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
                 //表单登录接口
                 .formLogin().loginProcessingUrl("/api/auth/login")

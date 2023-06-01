@@ -15,6 +15,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     @Autowired
     AccountMapper accountMapper;
 
+    //通过Security框架对方法进行判断
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if(username == null)
@@ -27,5 +28,18 @@ public class AuthorizeServiceImpl implements AuthorizeService {
                 .password(account.getPassword())
                 .roles("user")
                 .build();
+    }
+
+    //发送验证邮件
+    public boolean sendValidateEmail(String email) {
+
+        /**
+         * 1.先生成对应的验证码
+         * 2.把邮箱和对应的验证码放到Redis里面(过期时间为3分钟,如果此时重新要求发文件,那么,只要剩余时间低于两分钟,就可以重新发送,重复此流程)
+         * 3.发送验证码到指定邮箱
+         * 4.如果发送失败的话,把Redis里面的刚刚插入的删除
+         * 5.用户在注册时,再从Redis里面取出对应的键值对,然后看验证码是否一致
+         */
+        return false;
     }
 }
