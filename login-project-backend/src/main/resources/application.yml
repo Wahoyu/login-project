@@ -13,3 +13,10 @@ spring:
     username: 18004041026@163.com
     # 注意密码是在开启smtp/pop3时自动生成的，记得保存一下，不然就找不到了
     password: JWGZDDMYRZZTITUY
+
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+
