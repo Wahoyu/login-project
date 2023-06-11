@@ -9,7 +9,7 @@
       <el-form :model="form" :rules="rules" @validate="onValidate" ref="formRef">
 
         <el-form-item prop="username">
-          <el-input v-model="form.username" type="text" placeholder="用户名">
+          <el-input v-model="form.username" :maxlength="8" type="text" placeholder="用户名">
             <template #prefix>
               <el-icon>
                 <User/>
@@ -19,7 +19,7 @@
         </el-form-item>
 
         <el-form-item prop="password">
-          <el-input v-model="form.password" type="password" placeholder="密码">
+          <el-input v-model="form.password" :maxlength="16" type="password" placeholder="密码">
             <template #prefix>
               <el-icon>
                 <Lock/>
@@ -29,7 +29,7 @@
         </el-form-item>
 
         <el-form-item prop="password_repeat">
-          <el-input v-model="form.password_repeat" type="password" placeholder="重复密码">
+          <el-input v-model="form.password_repeat" :maxlength="16" type="password" placeholder="重复密码">
             <template #prefix>
               <el-icon>
                 <Lock/>
@@ -50,7 +50,7 @@
         <el-form-item prop="code">
           <el-row :gutter="10" style="width: 100%">
             <el-col :span="17">
-              <el-input v-model="form.code" type="text" placeholder="请输入验证码">
+              <el-input v-model="form.code" :maxlength="6" type="text" placeholder="请输入验证码">
                 <template #prefix>
                   <el-icon>
                     <EditPen/>
@@ -59,7 +59,10 @@
               </el-input>
             </el-col>
             <el-col :span="5">
-              <el-button type="success" @click="validateEmail" :disabled="!isEmailValid">获取验证码</el-button>
+              <el-button type="success" @click="validateEmail"
+                         :disabled="!isEmailValid || coldTime > 0">
+                {{coldTime > 0 ? '获取验证码('+coldTime+'秒)' : "获取验证码"}}
+              </el-button>
             </el-col>
           </el-row>
         </el-form-item>
@@ -153,20 +156,32 @@ const formRef = ref()
 const register = () => {
   formRef.value.validate((isValid) => {
     if (isValid) {
-      //成功注册逻辑
-      //...
+      //成功验证后开始注册
+      post('/api/auth/register',{
+        username: form.username,
+        password: form.password,
+        email: form.email,
+        code: form.code
+      },(message) =>{
+        ElMessage.success(message);
+        router.push("/")
+      })
+
     } else {
       ElMessage.warning('请完整填写注册表单内容!')
     }
   })
 }
 
+const coldTime = ref(0)
 //请求后端的发送验证码请求
 const validateEmail = () => {
   post('/api/auth/valid-email', {
     email: form.email
   }, (message) => {
     ElMessage.success(message)
+    coldTime.value = 60
+    setInterval(()=>coldTime.value--,1000)
   })
 }
 

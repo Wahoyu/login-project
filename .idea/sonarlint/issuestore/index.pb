@@ -13,8 +13,6 @@ t
 Dlogin-project-backend/src/main/java/com/example/entity/RestBean.java,d/2/d210a3e1ff16b6f7a3621971b551b6e1cd03e6f0
 ƒ
 Slogin-project-backend/src/main/java/com/example/LoginProjectBackendApplication.java,4/a/4a42dbe7cea03a64f6d5c17e0bbf0183b54bca98
-z
-Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
 k
 ;study-project-frontend/src/components/welcome/LoginPage.vue,9/2/927a1190934546e940acb5262ee1786ed9ba196b
 `
