@@ -49,7 +49,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
                 .build();
     }
 
-    //发送验证邮件
+    //发送验证码
     public String sendValidateEmail(String email, String sessionId) {
 
         /**
@@ -87,6 +87,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
         }
     }
 
+    //对验证码进行校验并向数据库中写入用户
     @Override
     public String validateAndRegister(String username, String password, String email, String code, String sessionId) {
 

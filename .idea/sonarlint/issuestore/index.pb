@@ -13,9 +13,3 @@ t
 Dlogin-project-backend/src/main/java/com/example/entity/RestBean.java,d/2/d210a3e1ff16b6f7a3621971b551b6e1cd03e6f0
 ƒ
 Slogin-project-backend/src/main/java/com/example/LoginProjectBackendApplication.java,4/a/4a42dbe7cea03a64f6d5c17e0bbf0183b54bca98
-k
-;study-project-frontend/src/components/welcome/LoginPage.vue,9/2/927a1190934546e940acb5262ee1786ed9ba196b
-`
-0study-project-frontend/src/views/WelcomePage.vue,3/e/3eef58c125558e7ca04528a98419e715e4dc43ff
-^
-.study-project-frontend/src/views/IndexPage.vue,0/3/030b9f484af13168e30bff37bde14607971a8c76
