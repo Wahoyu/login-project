@@ -15,8 +15,8 @@
     <!--右侧登录界面-->
     <div style="width: 350px;background-color: white;z-index: 1">
       <router-view v-slot="{ Component }">
-        <transition name="el-fade-in-linear">
-          <component :is="Component"/>
+        <transition name="el-fade-in-linear" mode="out-in">
+          <component :is="Component" style="height: 100%"/>
         </transition>
       </router-view>
     </div>
