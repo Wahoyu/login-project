@@ -67,8 +67,6 @@
           </el-row>
         </el-form-item>
       </el-form>
-
-
     </div>
 
     <div style="margin-top: 80px">
@@ -173,6 +171,7 @@ const register = () => {
   })
 }
 
+//邮箱验证码冷却时间
 const coldTime = ref(0)
 //请求后端的发送验证码请求
 const validateEmail = () => {

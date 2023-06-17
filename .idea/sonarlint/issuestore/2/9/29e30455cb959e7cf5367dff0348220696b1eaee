@@ -1,0 +1,11 @@
+
+p	java:S116"VRename this field "EMAIL_REGEX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óœ×Äýÿÿÿÿ
+s	java:S116"YRename this field "USERNAME_REGEX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(——¨§ûÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(Óœ×Äýÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(——¨§ûÿÿÿÿ
+x
+java:S1450"]Remove the "USERNAME_REGEX" field and declare it as a local variable in the relevant methods.(——¨§ûÿÿÿÿ
+`
+java:S1128	">Remove this unused import 'org.jetbrains.annotations.NotNull'.(éš®ïøÿÿÿÿ8äà‚ÉŠ1
