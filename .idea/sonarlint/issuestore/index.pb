@@ -33,17 +33,7 @@ W
 'study-project-frontend/src/net/index.js,c/f/cf7113695f96db4eb95ad713b1ef378cb956ed9f
 R
 "study-project-frontend/src/main.js,f/6/f690aee23a004ca414e06848fe3dec1a60de979c
-z
-Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
-†
-Vlogin-project-backend/src/main/java/com/example/Service/impl/AuthorizeServiceImpl.java,e/7/e700d88d8ca17f9fce1b6c1706722648bd2c1296
 ^
 .study-project-frontend/src/views/IndexPage.vue,0/3/030b9f484af13168e30bff37bde14607971a8c76
-}
-Mlogin-project-backend/src/main/java/com/example/Service/AuthorizeService.java,2/4/24d865b4a32c1c6098f5df761a42175d7591097c
-ƒ
-Slogin-project-backend/src/main/java/com/example/controller/AuthorizeController.java,2/9/29e30455cb959e7cf5367dff0348220696b1eaee
 `
 0study-project-frontend/src/views/WelcomePage.vue,3/e/3eef58c125558e7ca04528a98419e715e4dc43ff
-Z
-*study-project-frontend/src/router/index.js,9/c/9cdf780a3279841e2dad88f990d7e362f1749780

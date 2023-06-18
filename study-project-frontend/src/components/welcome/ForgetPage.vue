@@ -53,10 +53,13 @@
           </el-form-item>
         </el-form>
       </div>
+
+      <!--验证邮箱button-->
       <div style="margin-top: 70px">
-        <el-button @click="active = 1" style="width: 270px;" type="danger" plain>验证邮箱</el-button>
+        <el-button @click="startReset()" style="width: 270px;" type="danger" plain>验证邮箱</el-button>
       </div>
 
+      <!--跳转回登录界面-->
       <div style="margin-top: 20px">
         <span style="font-size: 14px;line-height: 15px;color: grey">想起账号?</span>
         <el-link type="primary" style="translate: 0 -2px" @click="router.push('/')">立即登录</el-link>
@@ -73,11 +76,12 @@
         <div style="font-size: 14px;color: grey">请填写您的新密码</div>
       </div>
 
+      <!--新密码表单-->
       <div style="margin-top: 50px">
         <el-form :model="form" :rules="rules" @validate="onValidate" ref="formRef">
 
           <el-form-item prop="password">
-            <el-input v-model="form.password" :maxlength="16" type="password" placeholder="密码">
+            <el-input v-model="form.password" :maxlength="16" type="password" placeholder="新密码">
               <template #prefix>
                 <el-icon>
                   <Lock/>
@@ -87,7 +91,7 @@
           </el-form-item>
 
           <el-form-item prop="password_repeat">
-            <el-input v-model="form.password_repeat" :maxlength="16" type="password" placeholder="重复密码">
+            <el-input v-model="form.password_repeat" :maxlength="16" type="password" placeholder="重复新密码">
               <template #prefix>
                 <el-icon>
                   <Lock/>
@@ -97,10 +101,13 @@
           </el-form-item>
         </el-form>
       </div>
+
+      <!--重置密码按钮-->
       <div style="margin-top: 70px">
-        <el-button @click="active = 1" style="width: 270px;" type="danger" plain>立即重置密码</el-button>
+        <el-button @click="doReset()" style="width: 270px;" type="danger" plain>立即重置密码</el-button>
       </div>
 
+      <!--返回登录界面-->
       <div style="margin-top: 20px">
         <span style="font-size: 14px;line-height: 15px;color: grey">想起账号?</span>
         <el-link type="primary" style="translate: 0 -2px" @click="router.push('/')">立即登录</el-link>
@@ -109,23 +116,23 @@
   </transition>
 
 
-
-
-
-
 </template>
 
 <script setup>
 import {reactive} from "vue";
-import {EditPen, Message,Lock} from "@element-plus/icons-vue";
+import {EditPen, Message, Lock} from "@element-plus/icons-vue";
 import {ref} from 'vue'
 import router from "@/router";
+import {post} from "@/net";
+import {ElMessage} from "element-plus";
 
 const active = ref(0)
-
+const formRef = ref()
 const form = reactive({
   email: '',
-  code: ''
+  code: '',
+  password: '',
+  password_repeat: ''
 })
 
 
@@ -166,6 +173,49 @@ const rules = {
   code: [
     {required: true, message: '请输入获取的验证码', trigger: 'blur'},
   ]
+}
+
+//请求后端的发送验证码请求
+const validateEmail = () => {
+  post('/api/auth/valid-reset-email', {
+    email: form.email
+  }, (message) => {
+    ElMessage.success(message)
+    coldTime.value = 60
+    setInterval(() => coldTime.value--, 1000)
+  })
+}
+
+//
+const startReset = () => {
+  formRef.value.validate((isValid) => {
+    if (isValid) {
+      post('/api/auth/start-reset', {
+        email: form.email,
+        code: form.code
+      }, () => {
+        active.value++;
+      })
+    } else {
+      ElMessage.warning('请填写电子邮件地址')
+    }
+  })
+}
+
+//
+const doReset = () => {
+  formRef.value.validate((isValid) => {
+    if(isValid){
+      post('/api/auth/do-reset',{
+        password: form.password
+      },(message)=>{
+        ElMessage.success(message)
+        router.push('/')
+      })
+    }else{
+      ElMessage.warning('请填写新密码')
+    }
+  })
 }
 </script>
 
