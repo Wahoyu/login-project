@@ -1,5 +1,5 @@
 <template>
-
+  <div>
   <!--步骤条-->
   <div style="margin: 30px 20px">
     <el-steps :active="active" finish-status="success" align-center>
@@ -116,6 +116,8 @@
   </transition>
 
 
+
+  </div>
 </template>
 
 <script setup>

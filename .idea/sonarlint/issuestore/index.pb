@@ -35,5 +35,9 @@ R
 "study-project-frontend/src/main.js,f/6/f690aee23a004ca414e06848fe3dec1a60de979c
 ^
 .study-project-frontend/src/views/IndexPage.vue,0/3/030b9f484af13168e30bff37bde14607971a8c76
-`
-0study-project-frontend/src/views/WelcomePage.vue,3/e/3eef58c125558e7ca04528a98419e715e4dc43ff
+}
+Mlogin-project-backend/src/main/java/com/example/Service/AuthorizeService.java,2/4/24d865b4a32c1c6098f5df761a42175d7591097c
+ƒ
+Slogin-project-backend/src/main/java/com/example/controller/AuthorizeController.java,2/9/29e30455cb959e7cf5367dff0348220696b1eaee
+z
+Jlogin-project-backend/src/main/java/com/example/mappeer/AccountMapper.java,1/f/1f54eb5af4fceb0d1b38fe36535d18a13f75d900
